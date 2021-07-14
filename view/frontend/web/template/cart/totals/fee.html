@@ -1,0 +1,10 @@
+<!-- ko if: isDisplayed() -->
+<tr class="totals opc-block-summary paymentfee excl">
+    <th class="mark" scope="row">
+        <span class="label" data-bind="text: title"></span>
+    </th>
+    <td class="amount">
+        <span class="price" data-bind="text: getPaymentFeeExclTax(), attr: {'data-th': title}"></span>
+    </td>
+</tr>
+<!-- /ko -->

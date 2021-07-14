@@ -1,0 +1,18 @@
+{
+    "name": "boostsales/magento2-paymentfee",
+    "description": "Magento 2 Add additional fee to onAccount payment method",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "authors": [{
+        "name": "Newgen Payments",
+        "email": "info@newgenpayments.com"
+    }],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Boostsales\\Paymentfee\\": ""
+        }
+    }
+}
