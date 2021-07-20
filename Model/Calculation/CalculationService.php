@@ -31,12 +31,22 @@ class CalculationService implements CalculatorInterface
             return 0;
         }
 
+        if ($this->hasMaxOrderTotal($quote)) {
+            return 0;
+        }
+        
         try {
             return $this->factory->get()->calculate($quote);
         } catch (ConfigurationMismatchException $e) {
             $this->logger->error($e);
             return 0.0;
         }
+    }
+
+    private function hasMaxOrderTotal(Quote $quote)
+    {
+        $amount = $quote->getBaseSubtotal(); 
+        return  $amount > 250 ? true: false;
     }
 
 }

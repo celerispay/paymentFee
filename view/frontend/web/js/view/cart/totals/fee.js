@@ -19,7 +19,9 @@ define([
         getPaymentFee: function() {
             var price = 0;
             if (this.totals() && totals.getSegment('payment_fee')) {
-                price = parseFloat(totals.getSegment('payment_fee').value);
+                if(totals.getSegment('grand_total').value < 250){
+                    price = parseFloat(totals.getSegment('payment_fee').value);
+                }
             }
             return price;
         },

@@ -8,9 +8,9 @@ define([
     'Magento_Checkout/js/model/full-screen-loader'
 ], function(ko, $, quote, storage, urlBuilder, getTotalsAction, fullScreenLoader) {
     'use strict';
-
+    var total = parseFloat(quote.totals().subtotal);
     return function(isLoading, payment) {
-        if (payment == "checkmo") {
+        if (payment == "checkmo" && total < 250) {
             fullScreenLoader.startLoader();
             return storage.post(
                 urlBuilder.build('paymentfee/calculate/paymentfee'),
